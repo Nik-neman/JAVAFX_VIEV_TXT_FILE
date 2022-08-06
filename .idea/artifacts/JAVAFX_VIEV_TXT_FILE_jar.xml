@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="JAVAFX_VIEV_TXT_FILE:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/JAVAFX_VIEV_TXT_FILE_jar</output-path>
+    <root id="archive" name="JAVAFX_VIEV_TXT_FILE.jar">
+      <element id="module-output" name="JAVAFX_VIEV_TXT_FILE" />
+    </root>
+  </artifact>
+</component>

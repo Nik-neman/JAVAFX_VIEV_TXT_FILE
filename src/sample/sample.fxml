@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <Button fx:id="chose" layoutX="398.0" layoutY="28.0" mnemonicParsing="false" onAction="#ChooseFile" prefHeight="25.0" prefWidth="167.0" text="Выберите текстовый файл" />
+        <Button fx:id="viev" layoutX="199.0" layoutY="77.0" mnemonicParsing="false" onAction="#vievFile" prefHeight="25.0" prefWidth="201.0" text="Просмотреть содержимое" />
+        <TextField fx:id="textPath" layoutX="30.0" layoutY="28.0" prefHeight="25.0" prefWidth="337.0" promptText=" Введите путь к текстовому файлу                                   или" />
+        <TextArea fx:id="textViev" layoutX="-3.0" layoutY="112.0" prefHeight="291.0" prefWidth="606.0" />
+    </children>
+    <opaqueInsets>
+        <Insets />
+    </opaqueInsets>
+</AnchorPane>

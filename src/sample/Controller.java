@@ -16,11 +16,13 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Controller {
 
     //    String filePathName ="C:\\Users\\Nikolai\\Documents";
-    String filePathName;
+    String filePathName = null;
     private Stage stage;
 
 
@@ -46,51 +48,61 @@ public class Controller {
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter(
                 "TXT files (*.txt)", "*.txt");
         fileChooser.getExtensionFilters().add(extFilter);
-//        fileChooser.setInitialDirectory(new File(System.getProperty(filePathName)));
-//        // Показываем диалог загрузки файла
-//        File file = fileChooser.showOpenDialog(mainApp.getPrimaryStage());
-        File selectedFile = fileChooser.showOpenDialog(stage);
-//        if (selectedFile != null) {
-//           stage.display(selectedFile);
-//        }
 
+        File selectedFile = fileChooser.showOpenDialog(stage);
 
         if (selectedFile != null) {
             filePathName = selectedFile.getPath();
-            if(textPath!= null) {
+            if(filePathName!= null) {
+                textPath.clear();
                 textPath.appendText(filePathName.toString());
-//            System.out.println(filePathName);
             } else {
                 textPath.appendText("Файл не выбран. Попробуйте ещё раз");
             }
         }
-
     }
 
     @FXML
     void vievFile(ActionEvent event) {
-//        System.out.println("hjgrhfuk");
-        BufferedReader bufferedReader = null;
-        String string;
+        String path = textPath.getText();
 
-        try {
-            bufferedReader = new BufferedReader(new FileReader(filePathName));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        StringBuilder stringBuilder = new StringBuilder();
+        if(path!= null) {
 
+            BufferedReader bufferedReader = null;
+            String string;
 
-        try {
-            while ((string = bufferedReader.readLine())!=null){
-                stringBuilder.append(string + "\n");
+            try {
+                bufferedReader = new BufferedReader(new FileReader(path));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+//                textViev.clear();
+                textViev.appendText("Текстовый файл не найден. Попробуйте ещё раз.\n");
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+            StringBuilder stringBuilder = new StringBuilder();
+
+            try {
+                while ((string = bufferedReader.readLine()) != null) {
+                    stringBuilder.append(string + "\n");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                textViev.clear();
+                textViev.appendText("Ошибка чтения файла. Попробуйте ещё раз\n");
+            }
+            try {
+                bufferedReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            textViev.clear();
+            textViev.setText(stringBuilder.toString());
+
+        } else if(path == "" || path == null){
+            textViev.clear();
+            textViev.appendText("Текстовый файл не найден. Попробуйте ещё раз.\n");
         }
-
-
-        textViev.appendText(stringBuilder.toString());
     }
+
 
 }

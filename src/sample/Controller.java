@@ -95,7 +95,6 @@ public class Controller {
                 e.printStackTrace();
             }
 
-            textViev.clear();
             textViev.setText(stringBuilder.toString());
 
         } else if(path == "" || path == null){
@@ -103,6 +102,4 @@ public class Controller {
             textViev.appendText("Текстовый файл не найден. Попробуйте ещё раз.\n");
         }
     }
-
-
 }

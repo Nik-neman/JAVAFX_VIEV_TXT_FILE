@@ -1,2 +1,24 @@
-# Project exclude paths
+#############
+## Idea
+#############
+target/
+.idea/
+.idea
+.repository/
+*.iml
+*.iws
+*.jrtc
+*.class
+*.info
+*.properties
+*.jar
+
+/1.JavaSyntax/
+/2.JavaCore/
+/4.JavaCollections/
+/5.OnlineInternship/
 /out/
+/JavaRushPlugin.properties
+/Instruction.png
+/out.log
+/out.log.*
